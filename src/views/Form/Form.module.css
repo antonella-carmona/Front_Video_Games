@@ -1,0 +1,70 @@
+.containerFormulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 330px;
+    padding: 20px;
+    background: #7da6d941;
+    justify-content: center; 
+    cursor: pointer;  
+    border-radius: 15px;
+    border: 1px solid #ccc; 
+  border-radius: 5px; 
+  }
+  .formulario
+  
+  .containerFormulario form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;  
+  }
+  .containerFormulario input {
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 90%;
+    cursor: pointer;  
+  }
+
+  .containerFormulario select {
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 90%;
+  
+  }
+
+  .containerFormulario span {
+    color: red;
+    margin-top: 5px;
+  }
+  
+  .containerFormulario button {
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 30%;
+    align-self: center; 
+    width: fit-content;
+    cursor: pointer;  
+  }
+
+
+
+
+
+  .backButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: #414040;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    /* ----- */
+    position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ccc;
+  text-decoration: none;
+  border-radius: 5px;
+  }

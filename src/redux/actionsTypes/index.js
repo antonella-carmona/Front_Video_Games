@@ -1,0 +1,13 @@
+export const GETALLGAMES= "GETALLGAMES";
+export const GETBYNAMEGAME = "GETBYNAMEGAME";
+export const GETBYIDGAME = "GETBYIDGAME";
+export const GETGENRES = "GETGENRES";
+export const POSTGAME = "POSTGAME";
+export const DELETEGAME = "DELETEGAME";
+export const PUTGAME = "PUTGAME";
+export const ALLPLATFORMS = "ALLPLATFORMS";
+export const CLEAR_STATE= "CLEAR_STATE";
+export const FILTER_CARD_GENRES= "FILTER_CARD_GENRES";
+export const ORDER_CARDS = "ORDER_CARDS";
+export const SORT_RATING = "SORT_RATING";
+export const FILTER_GAMES= "FILTER_GAMES";

@@ -1,0 +1,69 @@
+*{
+  text-decoration: none;
+}
+
+.container{
+    /* position: sticky;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border:1px solid white;
+    padding: 10px;
+    line-height: 30px;
+    margin-bottom: 30px;
+    -webkit-appearance: none;
+    color: white;
+    background-color: #69977e; */
+    /* ------------------- */
+    
+    width: 100%;
+    height: 10vh;
+    /* background-color: #79a8e241; */
+    background-color: #69977e;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom-width: 10px;
+}
+/* .back{
+  background-image: url("https://p4.wallpaperbetter.com/wallpaper/345/47/627/assassin-s-creed-assassin-s-creed-origins-hieroglyphs-wallpaper-preview.jpg");
+ box-shadow: inset 0px -6px 15px 10px black; 
+ background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
+} */
+
+.create{
+  position: absolute;
+  text-decoration: none;
+  /* color: white; */
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  /* left: 100px; */
+  right: 73%;
+  /* bottom: 10px; */
+  top: 18px;
+  border-radius: 5px;
+  border: 1px solid black;
+ /* background-color: #0c442c; */
+ background-color: #fbff1aa9;
+ box-shadow: 0 10px 50px rgba(7, 17, 19, 0.616);
+ text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.472);
+}
+
+.SearchBar{
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  text-decoration: none;
+  /* position: absolute; */
+  color: white;
+  height:50px;
+  right: 20px;
+ 
+}
+
