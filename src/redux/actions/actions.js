@@ -70,7 +70,7 @@ export const postGames= (videogame)=>{
 //_________________________________
 export const deleteGame = (id) =>{
     return async (dispatch)=> {
-      console.log("que id llega en la action?  ", id)
+      // console.log("que id llega en la action?  ", id)
       try {
         const response = await axios.delete(`/videogames/${id}`)
         return dispatch({
@@ -117,7 +117,7 @@ export const getAllPlatforms = ()=>{
 
   export const filterCardGenres= (genero)=>{
     return async (dispatch)=>{
-      console.log('parametro que me llega a la action:', genero);
+      // console.log('parametro que me llega a la action:', genero);
      return dispatch ({type: FILTER_CARD_GENRES, payload: genero})   
     }
 }
@@ -138,7 +138,7 @@ export const  sortRating = (rating)=> {
 }
 //_________________________________________________________
 export const  filterGames = (game)=> {
-  console.log("que me llego en la action? -->", game)
+  // console.log("que me llego en la action? -->", game)
   return (dispatch)=>{ 
    return dispatch ({type: FILTER_GAMES, payload : game})
 }
