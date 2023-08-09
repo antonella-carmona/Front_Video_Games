@@ -1,6 +1,6 @@
 import axios from "axios";
 import { GETALLGAMES, GETBYNAMEGAME, GETBYIDGAME, GETGENRES, POSTGAME, DELETEGAME, PUTGAME, 
-  ALLPLATFORMS,CLEAR_STATE, FILTER_CARD_GENRES, ORDER_CARDS, SORT_RATING, FILTER_GAMES } from "../actionsTypes/index";
+  ALLPLATFORMS,CLEAR_STATE, FILTER_CARD_GENRES, ORDER_CARDS, SORT_RATING, FILTER_GAMES, POST_FAV, REMOVE_FAV, ALL_FAV } from "../actionsTypes/index";
 // poner try cach a todas las actions para ver los errrores
 export const getAllGames = ()=>{
   return async (dispatch)=> {
@@ -143,3 +143,47 @@ export const  filterGames = (game)=> {
    return dispatch ({type: FILTER_GAMES, payload : game})
 }
 }
+//______________________________________________________
+export const postFavorite = (id)=>{
+ console.log('tenemos id de favPost:', id);
+  return async (dispatch)=>{
+    
+    dispatch ({type: POST_FAV, payload:id}) 
+   
+   
+
+
+
+    // Guardar los favoritos en el localStorage
+    // const favoritesInLocalStorage = JSON.parse(localStorage.getItem("favorites")) || [];
+    // localStorage.setItem("favorites", JSON.stringify([...favoritesInLocalStorage, id]));
+  }
+  
+}
+//_______________________________________________________
+export const removeFav = (id)=>{
+  console.log('tenemos id de removeFav', id);
+   return async (dispatch)=>{
+     
+     dispatch ({type: REMOVE_FAV, payload:id})   
+
+
+
+
+    // Actualizar los favoritos en el localStorage
+    // const favoritesInLocalStorage = JSON.parse(localStorage.getItem("favorites")) || [];
+    // const updatedFavorites = favoritesInLocalStorage.filter((favId) => favId !== id);
+    // localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+   }
+   
+ }
+ //_______________________________________________________
+export const allFav = ()=>{
+  
+   return async (dispatch)=>{
+     
+    return dispatch ({type: ALL_FAV})   
+   }
+   
+ }
+

@@ -1,5 +1,10 @@
 import { GETALLGAMES, GETBYNAMEGAME, GETBYIDGAME, GETGENRES, ALLPLATFORMS, CLEAR_STATE,
-   POSTGAME , FILTER_CARD_GENRES, ORDER_CARDS, SORT_RATING, FILTER_GAMES, DELETEGAME} from "../actionsTypes";
+   POSTGAME , FILTER_CARD_GENRES, ORDER_CARDS, SORT_RATING, FILTER_GAMES, DELETEGAME, POST_FAV, REMOVE_FAV, ALL_FAV} from "../actionsTypes";
+
+
+  // Obtener los favoritos desde el localStorage o un array vacío si no hay datos guardados
+  //  const initialFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
 
 let inicialState= {
     copyAllGames: [],  //--> copia para que no se pisen 
@@ -8,7 +13,8 @@ let inicialState= {
     detailGame: [],
     genres: [],   //-->  todos los generos
     platforms: [], //--> todas las plataformas
-    clear: []
+    clear: [],
+    myFavorites: []
    
 }
 
@@ -59,7 +65,7 @@ case FILTER_CARD_GENRES:
      const todosGames= state.copyAllGames
      const filtrados= action.payload === "Todos" ? todosGames : todosGames.filter(
        p => p.genres.includes(action.payload))
-      console.log("que tiene mi failtrado de genres? ", filtrados)
+      
        if(filtrados.length === 0){
         alert(`No hay videojuegos con el genero ${action.payload}`)
         return state
@@ -106,10 +112,6 @@ case ORDER_CARDS:
         if(prev.rating < next.rating) return -1;
         return 0;
     })}}
-
-    // if (action.payload === "Orden Rating") {
-    //   return {...state }  }
-
 //__________________API O BDD_________________________________________________
   case FILTER_GAMES: 
   const games = state.copyAllGames
@@ -136,6 +138,33 @@ return { ...state, allGames: action.payload === "ALL" ? state.copyAllGames : ori
       //    copyAllGames: updatedGames
       //  };
 //___________________________________________________________________
+ case POST_FAV: 
+//  console.log("Estado anterior:", state);
+ console.log("Nuevo favorito en reducer:", action.payload);
+ const favo = state.allGames.find((fav) => fav.id === action.payload)
+ console.log("Nuevo favorito completo:", favo);
+  return {
+  ...state,
+  myFavorites: [...state.myFavorites, favo]
+
+};
+//___________________________________________________________________
+case REMOVE_FAV:       
+          const videojuegoId = action.payload;
+      return {
+        ...state,
+        myFavorites: state.myFavorites.filter((fav) => fav.id !== videojuegoId),
+      };
+//___________________________________________________________________
+case ALL_FAV:
+  console.log("todos", state.myFavorites)
+  return{
+ ...state,
+ myFavorites: [...state.myFavorites]
+}
+// return state;
+//___________________________________________________________________
+
     default: return {...state}
   }
 }

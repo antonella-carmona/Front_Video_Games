@@ -1,6 +1,7 @@
-.containerFormulario {
-    display: flex;
+.formulario {
+    display: flex; /*  El elemento padre se convierte en un contenedor flexible, lo que significa que sus elementos hijos se comportarán como flex items, Flex Direction --> row, column, row-reverse, column-reverse,  */
     flex-direction: column;
+
     align-items: center;
     margin: 0 auto;
     max-width: 330px;
@@ -10,21 +11,27 @@
     cursor: pointer;  
     border-radius: 15px;
     border: 1px solid #ccc; 
-  border-radius: 5px; 
+    border-radius: 5px; 
+
+    max-width: 800px; /* Ajusta el ancho del formulario */
+    padding: 40px;
   }
-  .formulario
   
-  .containerFormulario form {
+  
+  /* .containerFormulario form {
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;  
-  }
+  } */
   .containerFormulario input {
     margin-bottom: 15px;
     padding: 10px;
     width: 90%;
     cursor: pointer;  
+
+
+    
   }
 
   .containerFormulario select {
@@ -52,19 +59,44 @@
 
 
 
-  .backButton {
-    display: inline-block;
+  .ButtonForm {
+    /* display: inline-block;
     padding: 10px 20px;
     background-color: #ccc;
     color: #414040;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    /* ----- */
+    
     position: absolute;
   top: 10px;
   left: 10px;
   background-color: #ccc;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 5px; */
+
+
+
+
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  }
+
+  .formColumns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaciado entre las columnas */
+  }
+
+  .formColumn {
+    
+    width: 40%; 
+ 
+  }
+
+  .submitButton {
+    /* ... (estilos actuales) */
+    margin-top: 20px;
+    align-self: flex-end;
   }

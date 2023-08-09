@@ -3,5 +3,5 @@ import Home from "./Home/Home";
 import Form from "./Form/Form";
 import Detail from "./Detail/Detail";
 import Search from "./Search/Search";
-
-export {Landing, Home, Form, Detail, Search}
+import Favorites from "../components/Favorites/Favorites";
+export {Landing, Home, Form, Detail, Search, Favorites}

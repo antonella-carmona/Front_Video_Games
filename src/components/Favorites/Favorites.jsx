@@ -1,43 +1,49 @@
 import Card from "../Card/Card";
-import { getAllFav} from "../../Redux/actions";
+import { allFav} from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import style from "./Favoritos.module.css";
+import {useEffect} from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import style from "./Favorites.module.css";
 
 
 
 const Favorites = () => {
+  
   const dispatch= useDispatch()
-
-//   const localStorageContent = localStorage.getItem("cachedUser");
-//   const  parser  = JSON.parse(localStorageContent);
-//   const user_id = parser.id; ID DE USUARIO
-   
+ 
   const myFavorites = useSelector((state) => state.myFavorites);
-
+ 
+  
+ 
   useEffect(()=>{
-    dispatch(getAllFav(user_id))
+    dispatch(allFav())
   },[dispatch])
   
     return (
         <div className={style.cardContainer}>
+
+        <Link to="/home">
+          <div >
+            <button id="work" type="button" name="Hover" className={style.backButton}>
+              Volver!
+            </button>
+          </div>
+        </Link>
          
       {myFavorites.length === 0 ? (
         <p>No tienes favoritos seleccionados.</p>
       ) : (
         <div className={style.card_publication}>
           {myFavorites?.map((fav) => (
-            (fav.Publication &&
+            
+            (fav &&
+              
             <Card
-              key={fav.Publication.id}
-              id={fav.Publication.id}
-              userId={fav.Publication.UserId}
-              title={fav.Publication.title}
-              about_class={fav.Publication.about_class}
-              about_teacher={fav.Publication.about_teacher}
-              grade={fav.Publication.grade}
-              lesson={fav.Publication.lesson_name}  
-              value={fav.Publication.value}
+              key={fav.id}
+              id={fav.id}
+              name={fav.name}
+              image={fav.image}
+              genres={fav.item}
               isFavo={true}
             />
           ) ))}

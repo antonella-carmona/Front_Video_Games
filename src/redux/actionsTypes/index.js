@@ -11,3 +11,6 @@ export const FILTER_CARD_GENRES= "FILTER_CARD_GENRES";
 export const ORDER_CARDS = "ORDER_CARDS";
 export const SORT_RATING = "SORT_RATING";
 export const FILTER_GAMES= "FILTER_GAMES";
+export const POST_FAV= "POST_FAV";
+export const REMOVE_FAV= "REMOVE_FAV";
+export const ALL_FAV = "ALL_FAV";

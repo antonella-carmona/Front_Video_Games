@@ -1,8 +1,9 @@
 // import logo from './logo.svg';
 // import './App.css';
-import {Landing, Home, Form, Detail, Search} from "./views";
+import {Landing, Home, Form, Detail, Favorites} from "./views";
 import NavBar from "./components/navBar/NavBar";
 import {Route, useLocation} from "react-router-dom";
+
 
 
 function App() {
@@ -15,8 +16,7 @@ function App() {
       <Route path="/home" render={ ()=>  <Home/>} />
       <Route path="/detail/:id" component={Detail}/>
       <Route path="/create" component={Form}/>
-      {/* <Route path="/search"  component={Search}/> */}
-      {/*  <Route exact path='/videogame/:id' component={Detail} /> */}
+      <Route path="/favoritos" component={Favorites}/>
     </div>
   );
 }

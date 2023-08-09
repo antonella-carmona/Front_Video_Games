@@ -11,11 +11,15 @@ import Loading from "../../components/Loader/Loader";
 const Home = () =>{
   const dispatch = useDispatch();
   const allVgames = useSelector((state) => state.allGames) 
+  
+ 
 //______________monta-actualiza-desmonta_____________________________________________________________
 //ciclos de vidas de este component particular
+
   useEffect(()=>{
-  dispatch(getAllGames()) //--> montaje
-  
+   
+  dispatch(getAllGames()) //--> montaje 
+ 
   return()=>{
     dispatch(clear())  //--> Limpieza | desmonta
   }
