@@ -123,20 +123,35 @@ case ORDER_CARDS:
    console.log("que me llego en mi reducer------>", action.payload);
 return { ...state, allGames: action.payload === "ALL" ? state.copyAllGames : originfilter }
 //___________________________________________________________________
-//  case DELETEGAME:
-//       const eliminar= state.copyAllGames
-//        // Filtra la lista de juegos y excluye el juego con el ID proporcionado
-//       //  const updatedGames = eliminar.filter(game => game.id !== action.payload);
-
-//        // Muestra una alerta con el ID y el nombre del juego eliminado
-//       //  const gameToDelete = eliminar.find(game => game.id === action.payload);
-//       //  alert(`Se eliminó exitosamente el juego con ID: ${gameToDelete.id} y nombre: ${gameToDelete.name}`);
-//        console.log("que llego en mi action.payload?  ", action.payload)
-       // Retorna un nuevo estado con la lista de juegos actualizada
-      //  return {
+ case DELETEGAME:
+  console.log("es hoy, es hoy ", action.payload.deleteId)
+      // const eliminar= state.copyAllGames
+      //  // Filtra la lista de juegos y excluye el juego con el ID proporcionado
+      //   const updatedGames = eliminar.filter(game => game.id !== action.payload.deleteId);
+      //   console.log("......  ", updatedGames)
+      //  // Muestra una alerta con el ID y el nombre del juego eliminado
+      //   const gameToDelete = eliminar.find(game => game.id === action.payload.deleteId);
+      //   alert(`Se eliminó exitosamente el juego con ID: ${gameToDelete.id} y nombre: ${gameToDelete.name}`);
+      
+      //  //Retorna un nuevo estado con la lista de juegos actualizada
+       
+       
+      //    return {
       //    ...state,
       //    copyAllGames: updatedGames
       //  };
+
+
+      // Encuentra el índice del favorito en myFavorites que tiene el PublicationId igual al payload
+      const favIndex = state.copyAllGames.findIndex((game) => game.id === action.payload.deleteId)
+      if (favIndex !== -1) {
+        // Crea una nueva copia de myFavorites sin el favorito que coincide con el PublicationId
+        const newGames = [...state.copyAllGames.slice(0, favIndex), ...state.copyAllGames.slice(favIndex + 1)];
+    return{
+      ...state,
+      copyAllGames: newGames
+    }
+  }
 //___________________________________________________________________
  case POST_FAV: 
 //  console.log("Estado anterior:", state);
@@ -162,7 +177,6 @@ case ALL_FAV:
  ...state,
  myFavorites: [...state.myFavorites]
 }
-// return state;
 //___________________________________________________________________
 
     default: return {...state}

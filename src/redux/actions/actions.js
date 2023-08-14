@@ -70,16 +70,18 @@ export const postGames= (videogame)=>{
 //_________________________________
 export const deleteGame = (id) =>{
     return async (dispatch)=> {
-      // console.log("que id llega en la action?  ", id)
+      console.log("que id llega en la action delete?  ", id)
       try {
         const response = await axios.delete(`/videogames/${id}`)
+        console.log("response.data", response.data)
+
         return dispatch({
             type: DELETEGAME,
             payload: response.data
         })
       
       } catch (error) {
-        alert(error.response.data.error)
+        alert(error)
       }
     }
 }

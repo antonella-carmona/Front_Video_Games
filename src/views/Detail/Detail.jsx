@@ -1,13 +1,18 @@
 import style from "./Detail.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getById, clear } from "../../redux/actions/actions";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { getById, clear , deleteGame} from "../../redux/actions/actions";
+import { Link , useHistory} from "react-router-dom";
+import { useEffect, useState } from "react";
+// import Delete from "../../components/Delete/Delete";
 
 
 const Detail = (props) => {
   const { id } = props.match.params;
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  const [deleted, setDeleted] = useState(false);
+
   const gameDetalle = useSelector((state) => state.detailGame);
  
 
@@ -22,7 +27,17 @@ const Detail = (props) => {
   }, [dispatch, id]);
 
   // console.log("que id llega en el detail? ---------->",id)
-  // const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
+
+  const handleDelete = async () => {
+    
+    // Dispatcha la acción de eliminación con el ID del elemento
+   await dispatch(deleteGame(id));
+    setDeleted(true);
+     history.push("/home");
+    console.log("pipi", deleted)
+  };
+ 
+
 //_________________platforms y genres de string --> array_____________________________
   const platformsArray = gameDetalle?.platforms?.split(",") || [];
   const genresArray = gameDetalle?.genres?.split(",") || [];
@@ -34,8 +49,27 @@ const Detail = (props) => {
 
   return (
     <div className={style.container}>
+
+
+          <div>
+            <button onClick={handleDelete}>Eliminar</button>
+          </div>
+
+
+
+          
+{deleted && (
+  <div>
+    <img
+      
+      src="https://www.yorokobu.es/wp-content/uploads/2015/02/destruccion-portada.jpg"
+      alt="Game Destruction"
+    />
+   
+  </div>
+)}
     
-      {gameDetalle.name ? (
+      
         <Link to="/home">
           <div >
             <button id="work" type="button" name="Hover" className={style.backButton}>
@@ -43,9 +77,9 @@ const Detail = (props) => {
             </button>
           </div>
         </Link>
-      ) : (
-        console.log("Error en el nombre")
-      )}
+     
+
+        
 
 
 

@@ -28,31 +28,31 @@ const Card = ({id, name, image, genres, isFavo})=>{
     return(
       <div className={style.oneCard}>
 
-      <div className={style.favoriteButton} onClick={(event) =>handleFavorite(event)}>
+      {/* <div className={style.favoriteButton} onClick={(event) =>handleFavorite(event)}>
         {isFav ? "❤️" : "🤍"}
-      </div>
-
+      </div> */}
 
         <Link to={`/detail/${id}`}  style={{textDecoration: "none"}}  >
 
-         <div className={style.name}> <h2>{name}</h2> </div> 
+        
          
-         <div className={style.imagen}>  {image? (<img src={image} alt="" width='200px' height='200px' />)  :
+         <div className={style.imagen}>  {image? (<img src={image} alt="imagen" height='280px'  />)  :
            (< img src="https://cdn.pixabay.com/photo/2021/05/06/14/51/gamepad-6233583_960_720.png"
-              alt="Not Found"
-              width="350px"
-              height="200px"  />  )}
+              alt="Not Found"/>  )}
             
         </div>
+
+        <div className={style.name}> <h2>{name}</h2> </div> 
 
          <div className={style.genres}>
             {Array.isArray(genres) ? (
               genres.map((item, index) => {
                 if (typeof item === "string") {
-                  return  <span key={index}>◼️ {item} </span>;
-                } else if (typeof item === "object") {
+                  return  <h5 key={index}>  ★  {item}   </h5>;
+                } 
+                else if (typeof item === "object") {
                   for (let key in item) {
-                    return <span key={index}>◼️ {item[key]} </span> ;
+                    return <h5 key={index}>   ★ {item[key]}    </h5> ;
                   }
                 }
                 return null;
@@ -65,6 +65,14 @@ const Card = ({id, name, image, genres, isFavo})=>{
 
       
             </Link>
+
+
+         
+       <div className={style.favoriteButton} onClick={(event) =>handleFavorite(event)}>
+        {isFav ? "❤️" : "🤍"}
+      </div> 
+
+
       </div>
     )
   }

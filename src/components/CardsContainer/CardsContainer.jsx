@@ -10,26 +10,28 @@ import Paginado from "../Paginado/Paginado"
 const CardsContainer = ()=>{
   const allGames = useSelector(state=>state.allGames); //allVideogames
 
-  const [pagina, setPagina] = useState(1);  //[currentPage, setCurrentPage] 
-  const [porPagina, setPorPagina] = useState(15); //videogamesPerPage,
+  const [pagina, setPagina] = useState(1);  //PAGINA ACTUAL
+  const [porPagina, setPorPagina] = useState(15); //POR PAGINA 15 CARDS
  
 
-  const maximo= Math.round(allGames.length/ porPagina)
- 
+  const maximo= Math.round(allGames.length/ porPagina) //redondea 7
+  
 
   return(
     <div >
-
+     {/* El componente Paginado, que recibe props para manejar la paginación */}
      <Paginado pagina={pagina} setPagina={setPagina} maximo={maximo} allGames={allGames.length} porPagina={porPagina}/>
         
         
         <div className={style.cardContainer} >
+{/* .slice() es un método que se utiliza en las arrays en JavaScript para crear una nueva copia de una porción de la array original. Se define mediante dos índices (inicio y fin)  */}
         {allGames.slice(
           (pagina - 1) *  porPagina , (pagina -1 ) * porPagina + porPagina
         ).map((game, i) =>{
+
+
           //---------------------------------------------------
   // Verificar si la estructura de datos de genres es diferente y adaptarla si es necesario
-  
             if (game.genres === undefined) {
               game.genres = game.Genres
             }  else{
@@ -37,7 +39,6 @@ const CardsContainer = ()=>{
             }
 
 
-  // console.log("genres desde la CradsContainer", game.genres)
           //-------------------------------------------------
 
             return  <div key={i} className={style.lasCards} > <Card
