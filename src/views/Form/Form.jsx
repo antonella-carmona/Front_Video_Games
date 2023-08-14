@@ -303,18 +303,11 @@ const [file, setFile] = useState(null)
    } else if(input.description==="" || input.description[0].trim().length === 0) {
     errorA.description= "Se debe completar este campo"}
    //______________________________________________________________________________________
-  //  if(/\.(jpg|jpeg|png|gif|bmp)$/i.test(input.image)){
-  //   errorA.image= "✔️"
-  //  } else{
-  //   errorA.image = "La imagen debe ser una url valida";
-  //  } if(input.image==="") errorA.image="Se debe completar este campo";
-
-     // Verificar si hay un archivo seleccionado en lugar de validar una URL
-  if (!file) {
-    errorA.image = "Se debe completar este campo";
-  } else {
-    errorA.image = "✔️";
-  }
+    if (file) {
+      errorA.image = "✔️";
+    } else {
+      errorA.image = "Se debe completar este campo";
+    }
    //__________________________________________________________________________________
    if(input.released){
     errorA.released="✔️";
@@ -403,7 +396,7 @@ useEffect(() => {
        <Link to="/home">
           <div >
             <button id="work" type="button" name="Hover" className={style.ButtonForm}>
-              Volver!
+              Volver
             </button>
           </div>
         </Link>
@@ -416,19 +409,6 @@ useEffect(() => {
               <input type="text" value={input.name} onChange={changeHandler} name="name" required/>
               <span className={style.error}>{error.name && error.name}</span>
             </div>
-
-            <div className={style.formColumn}>  
-              <label>Imagen</label>
-              <input type="file" value={input.image.event} onChange={evento => setFile(evento.target.files[0])} name="image" required />
-              {file && <span className={style.fileName}>{file.name}</span>}
-              {error.image && <span  className={style.error}>{error.image}</span>}
-            </div> 
-            
-            <div className={style.formColumn}>
-              <label>Description</label>
-              <input type="text" value={input.description} onChange={changeHandler} name="description" required/>
-              {error.description && <span  className={style.error}>{error.description}</span>}
-              </div>
 
               <div className={style.formColumn}>
               <label>Fecha de lanzamiento</label>
@@ -445,17 +425,19 @@ useEffect(() => {
               <div className={style.formColumn}>
               <label>Platforms</label>
               <select name="platforms" onChange={changeHandler} required  value={input.platforms}>
+              <option value="">Elegir</option>
                     {platforms && platforms.map((name) => (
-                       <option value={name}>
+                       <option key={name} value={name}>
                           {name}
                        </option> ))}
               </select>
               {/* {error.platforms && <span>{error.platforms}</span>} */}
               </div>
 
-              <div className={style.formColumn}>
+              <div className={style.formColumn} >
               <label>Genero</label>
-              <select onChange={changeHandler} required name="genres"  value={input.genres}>
+              <select onChange={changeHandler} required name="genres"  value={input.genres} >
+              <option value="">Elegir</option>
                  {genres && genres.map((genre) => (
                     <option key={genre.id} value={genre.name}>
                       {genre.name}
@@ -464,6 +446,19 @@ useEffect(() => {
               </select>
               {error.genres && <span>{error.genres}</span>}
              </div>
+
+             <div className={style.formColumn}>  
+              <label>Imagen</label>
+              <input type="file" value={input.image.event} onChange={evento => setFile(evento.target.files[0])} name="image" required />
+              {file && <span className={style.fileName}>{file.name}</span>}
+              {error.image && <span  className={style.error}>{error.image}</span>}
+            </div> 
+            
+            <div className={style.formColumn}>
+              <label>Description</label>
+              <textarea type="text" value={input.description} onChange={changeHandler} name="description" required rows="5" cols="39"/>
+              {error.description && <span  className={style.error}>{error.description}</span>}
+              </div>
 
               <button type="submit"   className={style.submitButton}>CREAR</button>
             </div>

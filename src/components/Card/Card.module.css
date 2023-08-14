@@ -29,35 +29,14 @@
 .oneCard:hover{
     transform: scale(1.05);
 } 
-.imagen{
-    
-    /* width:200px; */
-    /* height:250px; */
-    /* margin-top: 35px; */
-    /* margin-left: 33px; */
 
-    /* -------------- */
-
-
-    /* max-width: 100%;
-    max-height: 50%; 
-    overflow: hidden; 
-
-    display: flex;
-  align-items: center;
-  justify-content: center; */
-}
 .imagen img {
     /* Ajusta la imagen para ocupar todo el espacio disponible */
-  
-
 
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   max-width: 100%;
   max-height: 60%; /* La mitad de la altura de la tarjeta */
-    /* overflow: hidden; Oculta el contenido que exceda la altura definida */
-    
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,9 +54,6 @@
     padding-left: 5%;
     bottom: 20%;
 
-
-    /* font-family: 'My Font Name'; */
-    /* font-family: 'Oxanium', cursive; */
    }
 
 .genres{

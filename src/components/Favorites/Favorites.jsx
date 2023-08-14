@@ -25,13 +25,13 @@ const Favorites = () => {
         <Link to="/home">
           <div >
             <button id="work" type="button" name="Hover" className={style.backButton}>
-              Volver!
+              Volver
             </button>
           </div>
         </Link>
          
       {myFavorites.length === 0 ? (
-        <p>No tienes favoritos seleccionados.</p>
+        <p>No tienes favoritos seleccionados</p>
       ) : (
         <div className={style.card_publication}>
           {myFavorites?.map((fav) => (

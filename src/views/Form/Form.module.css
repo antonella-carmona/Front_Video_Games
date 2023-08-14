@@ -4,9 +4,8 @@
 
     align-items: center;
     margin: 0 auto;
-    max-width: 330px;
     padding: 20px;
-    background: #7da6d941;
+    background-color: rgba(60,52,132,0.8);
     justify-content: center; 
     cursor: pointer;  
     border-radius: 15px;
@@ -15,78 +14,77 @@
 
     max-width: 800px; /* Ajusta el ancho del formulario */
     padding: 40px;
+
+    padding-left: -9px;
+
+    margin-top: 40px;
   }
   
   
-  /* .containerFormulario form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;  
-  } */
   .containerFormulario input {
     margin-bottom: 15px;
     padding: 10px;
-    width: 90%;
+    width: 95%;
     cursor: pointer;  
-
-
-    
+    border-radius: 5px;
   }
 
   .containerFormulario select {
     margin-bottom: 15px;
     padding: 10px;
-    width: 90%;
-  
+    width: 102%;
+    border-radius: 5px;
   }
 
   .containerFormulario span {
     color: red;
     margin-top: 5px;
   }
-  
+  .containerFormulario label {
+   color: aliceblue;
+  /* margin-bottom: 5px;
+  right: 5px; */
+  }
+  /* volver! */
   .containerFormulario button {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     padding: 10px;
-    width: 30%;
+    width: 35%;
     align-self: center; 
     width: fit-content;
     cursor: pointer;  
+    border-radius: 5px;
   }
 
 
 
 
-
+/* volver! */
   .ButtonForm {
-    /* display: inline-block;
-    padding: 10px 20px;
-    background-color: #ccc;
-    color: #414040;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    
-    position: absolute;
-  top: 10px;
-  left: 10px;
+
+
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ccc;
+  color: #414040;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  /* ----- */
+  position: absolute;
+  top: 105px;
+  
+  left: 130px;
   background-color: #ccc;
   text-decoration: none;
-  border-radius: 5px; */
-
-
-
-
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
+  border-radius: 5px;
   }
-
+/* ................................ */
   .formColumns {
     display: flex;
     flex-wrap: wrap;
     gap: 20px; /* Espaciado entre las columnas */
+    padding-left: 35px;
   }
 
   .formColumn {
@@ -96,7 +94,7 @@
   }
 
   .submitButton {
-    /* ... (estilos actuales) */
-    margin-top: 20px;
+    margin-top: 14px;
     align-self: flex-end;
+   
   }

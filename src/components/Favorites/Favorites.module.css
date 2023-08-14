@@ -7,7 +7,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
-  background-color: #0c442c;
+  background-image: url("../../img//bg.jpg");
   text-align: center;
 
   
@@ -25,4 +25,27 @@
     place-content: center;
     margin-top: 5%;
     padding-bottom: 5%;
+  }
+
+  .backButton{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: #414040;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    /* ----- */
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    background-color: #ccc;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  p{
+    color: aliceblue;
+
+   
   }

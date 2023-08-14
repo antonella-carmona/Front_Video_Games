@@ -11,8 +11,6 @@ const Detail = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [deleted, setDeleted] = useState(false);
-
   const gameDetalle = useSelector((state) => state.detailGame);
  
 
@@ -23,15 +21,13 @@ const Detail = (props) => {
     }
   }, [dispatch, id]);
 
-  console.log("que id llega en el detail? ---------->",id)
+  // console.log("que id llega en el detail? ---------->",id)
 
   const handleDelete = async (event) => {
     
     // Dispatcha la acción de eliminación con el ID del elemento
    await dispatch(deleteGame(id));
-   await setDeleted(true);
    history.push("/home");
-    console.log("pipi", deleted)
   };
  
  // Verificar si el ID actual coincide con el ID del juego creado (UUID)__________
@@ -56,19 +52,6 @@ const Detail = (props) => {
            <button onClick={(event) => handleDelete(event)} className={style.backButtonDos}>Eliminar</button>
           </div>
       )}
-
-
-          
-        {deleted && (
-          <div>
-            <img
-              
-              src="https://www.yorokobu.es/wp-content/uploads/2015/02/destruccion-portada.jpg"
-              alt="Game Destruction"
-            />
-          
-          </div>
-        )}
     
       
         <Link to="/home">
@@ -78,11 +61,6 @@ const Detail = (props) => {
             </button>
           </div>
         </Link>
-     
-
-        
-
-
 
 
       <div>
@@ -144,8 +122,7 @@ const Detail = (props) => {
 
 
 {/* //__________________________________________________ */}      
-    <details>
-    <summary>Ver más</summary>
+  
       <div  className={style.rating}>
           
            <h4>Rating:</h4> <span>{gameDetalle?.rating}</span>
@@ -158,7 +135,7 @@ const Detail = (props) => {
           
       </div>
      
-      </details>
+     
       
 
 
