@@ -1,5 +1,3 @@
-/* Detail.module.css */
-
 .container {
   font-weight: bold;
     border: solid black;
@@ -21,9 +19,6 @@
     display: flex;
     flex-direction: column;
     position: relative;
-
-
-   
   }
 
   summary {
@@ -32,7 +27,6 @@
   
   details[open] .rating {
     display: block;
-    
   }
  
     
@@ -46,11 +40,28 @@
     font-weight: bold;
     /* ----- */
     position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #ccc;
-  text-decoration: none;
-  border-radius: 5px;
+    top: 10px;
+    left: 10px;
+    background-color: #ccc;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .backButtonDos{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: #414040;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    /* ----- */
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    background-color: #ccc;
+    text-decoration: none;
+    border-radius: 5px;
   }
   
   .image {

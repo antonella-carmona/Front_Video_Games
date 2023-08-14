@@ -68,7 +68,7 @@ export const postGames= (videogame)=>{
       }
 }
 //_________________________________
-export const deleteGame = (id) =>{
+export const deleteGame = (id)  =>{
     return async (dispatch)=> {
       console.log("que id llega en la action delete?  ", id)
       try {

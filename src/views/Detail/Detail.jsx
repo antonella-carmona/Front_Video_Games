@@ -17,63 +17,64 @@ const Detail = (props) => {
  
 
   useEffect(() => {
-    // console.log("verificar id ---------->",id)
     dispatch(getById(id));
-
-
     return()=>{
       dispatch(clear())
     }
   }, [dispatch, id]);
 
-  // console.log("que id llega en el detail? ---------->",id)
+  console.log("que id llega en el detail? ---------->",id)
 
-  const handleDelete = async () => {
+  const handleDelete = async (event) => {
     
     // Dispatcha la acción de eliminación con el ID del elemento
    await dispatch(deleteGame(id));
-    setDeleted(true);
-     history.push("/home");
+   await setDeleted(true);
+   history.push("/home");
     console.log("pipi", deleted)
   };
  
+ // Verificar si el ID actual coincide con el ID del juego creado (UUID)__________
+    const isUUID = (id) => {
+      const uuidPattern = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+      return uuidPattern.test(id);
+    };
+    const isUUIDType = isUUID(id);
 
 //_________________platforms y genres de string --> array_____________________________
   const platformsArray = gameDetalle?.platforms?.split(",") || [];
   const genresArray = gameDetalle?.genres?.split(",") || [];
   const genresArray2 = gameDetalle?.Genres || [];
   const todo= [...genresArray, ...genresArray2]
-  console.log("es array? -->",platformsArray)
-  console.log("es array del detalle de genres? -->",todo)
 //___________________________________________________________________________
 
   return (
     <div className={style.container}>
 
-
-          <div>
-            <button onClick={handleDelete}>Eliminar</button>
+      {isUUIDType && (
+         <div>
+           <button onClick={(event) => handleDelete(event)} className={style.backButtonDos}>Eliminar</button>
           </div>
-
+      )}
 
 
           
-{deleted && (
-  <div>
-    <img
-      
-      src="https://www.yorokobu.es/wp-content/uploads/2015/02/destruccion-portada.jpg"
-      alt="Game Destruction"
-    />
-   
-  </div>
-)}
+        {deleted && (
+          <div>
+            <img
+              
+              src="https://www.yorokobu.es/wp-content/uploads/2015/02/destruccion-portada.jpg"
+              alt="Game Destruction"
+            />
+          
+          </div>
+        )}
     
       
         <Link to="/home">
           <div >
             <button id="work" type="button" name="Hover" className={style.backButton}>
-              Volver!
+              Volver
             </button>
           </div>
         </Link>
