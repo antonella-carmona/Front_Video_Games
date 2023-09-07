@@ -1,11 +1,12 @@
 *{
   text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
 }
 
 .container{
     width: 100%;
     height: 10vh;
-    /* background-color: #69977e; */
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -14,6 +15,14 @@
     /* ------------ */
 
     background-image: url("../../img/header.jpg");
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
+   
 }
 
 
@@ -46,8 +55,10 @@
   text-decoration: none;
   color: white;
   height:50px;  /* altura */
-  right: 20px;   /* Derecha */
-  
+  right: 0px;   /* Derecha */
+ 
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
 
 }
 
@@ -55,7 +66,7 @@
 
 
 .buttonFav{
-  top: 14px;
+  top: 9px;
   position: absolute;
 
   /* color: rgb(0, 0, 0); */
@@ -65,8 +76,8 @@
   /* color: white; */
   font-weight: bold;
  /* ------------------------- */
-  font-size: 17px;  /* tamaño letra */
-  height: 35px;  /* altura */
+  font-size: 15px;  /* tamaño letra */
+  height: 36px;  /* altura */
   border: 0ex;
   border-radius: 10px 10px 10px 10px;
   cursor: pointer;
@@ -78,6 +89,11 @@
   /* right:34%;   */
   right: 29%;  /* Derecha */
   margin-right: -9px;
+
+
+
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
  
 }
 

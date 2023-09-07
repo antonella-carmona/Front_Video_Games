@@ -4,6 +4,7 @@
 // import {useDispatch, useSelector} from "react-redux";
 // import { useHistory } from 'react-router-dom';
 // import { Link } from "react-router-dom/cjs/react-router-dom.min";
+// import {uploadFile} from "../../firebase/config"
 
 
 
@@ -25,7 +26,7 @@
 //     platforms: [],
 //     genres: []
 // });
-// console.log(input)
+
 // //manejador state de errores______________________________________________
 // const [error, setError] = useState({
 //     name:"",   
@@ -36,7 +37,9 @@
 //     platforms: [],
 //     genres: []
 // });
+// //__________________________________________________________________________
 
+// const [file, setFile] = useState(null)
 
 // //_________________________________________________________________________ 
 
@@ -45,7 +48,8 @@
 //   const changeHandler = (event) =>{
 //     const propiedad= event.target.name;
 //     const valor = event.target.value;
-   
+  
+
 //    setInput({...input, [propiedad]:valor})
 //    setError(validate({...input, [propiedad]:valor})) 
     
@@ -70,11 +74,11 @@
 //    } else if(input.description==="" || input.description[0].trim().length === 0) {
 //     errorA.description= "Se debe completar este campo"}
 //    //______________________________________________________________________________________
-//    if(/\.(jpg|jpeg|png|gif|bmp)$/i.test(input.image)){
-//     errorA.image= "✔️"
-//    } else{
-//     errorA.image = "La imagen debe ser una url valida";
-//    } if(input.image==="") errorA.image="Se debe completar este campo";
+//     if (file) {
+//       errorA.image = "✔️";
+//     } else {
+//       errorA.image = "Se debe completar este campo";
+//     }
 //    //__________________________________________________________________________________
 //    if(input.released){
 //     errorA.released="✔️";
@@ -111,11 +115,21 @@
 
 
 //  //_________________________FN BOTON CREAR__________________________________________________________
-//  const submitHandler = (event)=>{
+//  const submitHandler = async (event)=>{
 //     event.preventDefault();
       
-//     if(input){
-//       dispatch(postGames(input))
+//     if(input && file){
+      
+//         try {
+//           const imageUrl = await uploadFile(file); // Subir la imagen a Firebase Storage
+//           setInput({ ...input, image: imageUrl }); // Actualizar la URL de la imagen en el estado
+//           dispatch(postGames({ ...input, image: imageUrl }))
+//         } catch (error) {
+//           console.error("Error al subir la imagen:", error);
+//           return
+//         }
+      
+//       // dispatch(postGames(input))
     
      
 //     alert(`Has creado el juego ${input.name} exitosamente`)
@@ -153,57 +167,48 @@
 //        <Link to="/home">
 //           <div >
 //             <button id="work" type="button" name="Hover" className={style.ButtonForm}>
-//               Volver!
+//               Volver
 //             </button>
 //           </div>
 //         </Link>
 
 //      <form onSubmit={submitHandler} className={style.formulario}>
-//         <div>    
-//             <div>
+//         <div className={style.formColumns}>    
+
+//             <div className={style.formColumn}>
 //               <label>Name</label>
 //               <input type="text" value={input.name} onChange={changeHandler} name="name" required/>
 //               <span className={style.error}>{error.name && error.name}</span>
 //             </div>
 
-//             <div>  
-//               <label>Imagen</label>
-//               <input type="text"value={input.image} onChange={changeHandler} name="image" required />
-//               {error.image && <span  className={style.error}>{error.image}</span>}
-//             </div> 
-            
-//             <div>
-//               <label>Description</label>
-//               <input type="text" value={input.description} onChange={changeHandler} name="description" required/>
-//               {error.description && <span  className={style.error}>{error.description}</span>}
-//               </div>
-
-//               <div>
+//               <div className={style.formColumn}>
 //               <label>Fecha de lanzamiento</label>
 //               <input type="date" value={input.released} onChange={changeHandler} name="released" required/>
 //               {error.released && <span  className={style.error}>{error.released}</span>}
 //               </div>
 
-//               <div>
+//               <div className={style.formColumn}>
 //               <label>Rating</label>
 //               <input type="number" value={input.rating} onChange={changeHandler} name="rating" required/>
 //               {error.rating && <span  className={style.error}>{error.rating}</span>}
 //               </div>
 
-//               <div>
+//               <div className={style.formColumn}>
 //               <label>Platforms</label>
 //               <select name="platforms" onChange={changeHandler} required  value={input.platforms}>
+//               <option value="">Elegir</option>
 //                     {platforms && platforms.map((name) => (
-//                        <option value={name}>
+//                        <option key={name} value={name}>
 //                           {name}
 //                        </option> ))}
 //               </select>
 //               {/* {error.platforms && <span>{error.platforms}</span>} */}
 //               </div>
 
-//               <div>
+//               <div className={style.formColumn} >
 //               <label>Genero</label>
-//               <select onChange={changeHandler} required name="genres"  value={input.genres}>
+//               <select onChange={changeHandler} required name="genres"  value={input.genres} >
+//               <option value="">Elegir</option>
 //                  {genres && genres.map((genre) => (
 //                     <option key={genre.id} value={genre.name}>
 //                       {genre.name}
@@ -213,7 +218,20 @@
 //               {error.genres && <span>{error.genres}</span>}
 //              </div>
 
-//               <button type="submit">CREAR</button>
+//              <div className={style.formColumn}>  
+//               <label>Imagen</label>
+//               <input type="file" value={input.image.event} onChange={evento => setFile(evento.target.files[0])} name="image" required />
+//               {file && <span className={style.fileName}>{file.name}</span>}
+//               {error.image && <span  className={style.error}>{error.image}</span>}
+//             </div> 
+            
+//             <div className={style.formColumn}>
+//               <label>Description</label>
+//               <textarea type="text" value={input.description} onChange={changeHandler} name="description" required rows="5" cols="39"/>
+//               {error.description && <span  className={style.error}>{error.description}</span>}
+//               </div>
+
+//               <button type="submit"   className={style.submitButton}>CREAR</button>
 //             </div>
 //           </form>
 //       </div>
@@ -224,8 +242,8 @@
 
 
 
-  //_____________________________PROBANDO_____________________________________
 
+// ---------------------------------------------------------------------------------
 
 import { useState, useEffect } from "react";
 import style from "./Form.module.css";
@@ -236,14 +254,13 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import {uploadFile} from "../../firebase/config"
 
 
-
-
 const Form = () =>{
   const dispatch = useDispatch();
   // const navigate= useNavigate()
   const genres = useSelector((state) => state.genres);
   const platforms = useSelector((state)=> state.platforms);
   const history = useHistory();
+  
 
   //manejador inputs
   const [input, setInput] = useState({
@@ -269,7 +286,7 @@ const [error, setError] = useState({
 //__________________________________________________________________________
 
 const [file, setFile] = useState(null)
-
+const [currentPage, setCurrentPage] = useState(1);
 //_________________________________________________________________________ 
 
   // esta fn maneja el state local-> controladorCambios de los input_____________
@@ -289,55 +306,47 @@ const [file, setFile] = useState(null)
  const validate = (input) =>{
    let errorA={};
 
-      if (/^[a-zA-ZÀ-ÖØ-öø-ÿ\s']+$/.test(input.name)) {
-    errorA.name = "✔️";
-  } else if (input.name === "" || input.name[0].trim().length === 0) {
-    errorA.name = "Se debe completar este campo";
-  } else {
-    errorA.name = "Solo permite letras del alfabeto (a-z, A-Z)";
-  }
+   // Validación del campo 'name'
+   if (!input.name || input.name.trim().length === 0) {
+    errorA.name = "* Se debe completar este campo";
+    } else if (!/^[a-zA-ZÀ-ÖØ-öø-ÿ\s']+$/.test(input.name)) {
+    errorA.name = "* Solo permite letras del alfabeto (A-Z)";
+    }
    
    //______________________________________________________________________________________
-   if(input.description.length>0 && input.description.length > 20 && input.description.length < 200){
-    errorA.description= "✔️"
-   } else if(input.description==="" || input.description[0].trim().length === 0) {
-    errorA.description= "Se debe completar este campo"}
+ // Validación del campo 'description'
+    if (!input.description || input.description.trim().length === 0) {
+      errorA.description = "* Se debe completar este campo";
+    } else if (input.description.length < 20 || input.description.length > 200) {
+      errorA.description = "* Debe tener entre 20 y 200 caracteres";
+    }
    //______________________________________________________________________________________
-    if (file) {
-      errorA.image = "✔️";
-    } else {
-      errorA.image = "Se debe completar este campo";
-    }
+   // Validación del campo 'image'
+      if (!input.image) {
+        errorA.image = "* Se debe completar este campo";
+      }
    //__________________________________________________________________________________
-   if(input.released){
-    errorA.released="✔️";
-   } else if(input.released === ""){
-    errorA.released="Se debe completar este campo";
-   }
+  // Validación del campo 'released'
+      if (!input.released) {
+        errorA.released = "* Se debe completar este campo";
+      }
    //_________________________________________________________________________________
-   if(!input.rating){
-    errorA.rating= "El rating es obligatorio";
-   } 
-   else if(input.rating > 5 || input.rating < 0) {
-      errorA.rating="El rating debe estar entre 0 y 5";
-   }
-   else{
-    errorA.rating= "✔️"
-   }
+  // Validación del campo 'rating'
+      if (!input.rating) {
+        errorA.rating = "* El rating es obligatorio";
+      } else if (input.rating < 1 || input.rating > 5) {
+        errorA.rating = "* El rating debe estar entre 1 y 5";
+      }
    //_________________________________________________________________________________
-   if(!input.genres){
-   errorA.genres= "El genero es obligatorio";
-   } 
-   else {
-    errorA.genres= "✔️"
-   }
-//____________________________________________________________________________________
-   if(!input.platforms){
-    errorA.platforms= "Seleccione una plataforma";
-    } 
-    else {
-     errorA.platforms= "✔️"
+  // Validación del campo 'genres'
+    if (!input.genres) {
+      errorA.genres = "* El género es obligatorio";
     }
+//____________________________________________________________________________________
+  // Validación del campo 'platforms'
+  if (!input.platforms) {
+    errorA.platforms = "* Seleccione una plataforma";
+  }
 
    return errorA;
  } 
@@ -357,8 +366,6 @@ const [file, setFile] = useState(null)
           console.error("Error al subir la imagen:", error);
           return
         }
-      
-      // dispatch(postGames(input))
     
      
     alert(`Has creado el juego ${input.name} exitosamente`)
@@ -378,8 +385,39 @@ const [file, setFile] = useState(null)
   }
  
  }
-//______________________________________________________________________________
 
+//___________________BOTON SIGUIENTE FORMULARIO________________________________
+  // const nextFormHandler= ()=>{
+  //  // Verifica si el usuario está en la última página (en este caso, la página 4)
+  // if (currentPage < 4 && input.name && input.released) {
+  //   setCurrentPage(currentPage + 1);
+  // } 
+  // }
+
+  const nextFormHandler = () => {
+    // Verifica si el usuario está en la última página (en este caso, la página 4)
+    if (currentPage < 4) {
+      // Dependiendo de la página actual, verifica los campos relevantes
+      if (currentPage === 1) {
+        if (input.name && input.released) {
+          setCurrentPage(currentPage + 1);
+        }
+      } else if (currentPage === 2) {
+        if (input.rating && input.platforms) {
+          setCurrentPage(currentPage + 1);
+        }
+      } else if (currentPage === 3) {
+        if (input.genres) {
+          setCurrentPage(currentPage + 1);
+        }
+      }
+    }
+  };
+  console.log("caca-->", input)
+
+ 
+  
+//______________________________________________________________________________
 
  useEffect(() => {
   dispatch(getAllGenres()); // Despacha la acción para obtener los géneros
@@ -391,80 +429,186 @@ useEffect(() => {
 
 //_______________________________________________________________________________________
     return(
-    <div className={style.containerFormulario}>
 
-       <Link to="/home">
+     <div className={style.contenedor_General}>
+
+
+  <div className={style.Contenedor_Formulario}>
+      <h3>CREA TU PROPIO JUEGO</h3>
+
+      <div className={style.progress}>
+            
+            <div className={`${style.paso}`}>
+              <div className={`${style.num}  ${currentPage === 1 ? style.active : ""} `}><span>1</span></div>
+              <div className={`${style.check} ${style.icono}`}>
+             
+              </div>
+            </div>
+
+            <div className={`${style.paso} `}>
+              <div className={`${style.num} ${currentPage === 2 ? style.active : ""}`}><span>2</span></div>
+              <div className={`${style.check} ${style.icono}`}>
+             
+              </div>
+            </div>
+            <div className={style.paso}>
+              <div className={`${style.num} ${currentPage === 3 ? style.active : ""}`}><span>3</span></div>
+              <div className={`${style.check} ${style.icono}`}>
+             
+              </div>
+            </div>
+            <div className={style.paso}>
+                <div className={`${style.num} ${currentPage === 4 ? style.active : ""}`}><span>4</span></div>
+                <div className={`${style.check} ${style.icono}`}>
+               
+                </div>
+            </div>
+    </div>
+      
+
+     <form onSubmit={submitHandler} className={style.formulario}>
+
+{/* --PAGINA 1------ */}
+
+      <div className={style.pagina}  style={{ display: currentPage === 1 ? 'block' : 'none' }}>
+        <div className={style.campo}>
+
+              <div className={style.label}> <label>Nombre:</label>
+              <span className={style.error}>{error.name && error.name}</span>
+              <input type="text" value={input.name} onChange={changeHandler} name="name" required/>
+              </div>
+
+        </div>
+
+              <div className={style.campo}>
+
+                  <div className={style.label}> <label>Fecha de lanzamiento:</label>
+                  {error.released && <span  className={style.error}>{error.released}</span>}
+                  <input type="date" value={input.released} onChange={changeHandler} name="released" required/>
+                  </div>
+
+              </div>
+
+              <div className={style.campo } >
+                <button onClick={() => { nextFormHandler()} } >Siguiente</button>
+              </div>
+      </div>   
+
+
+ {/* --PAGINA 2------ */}
+   <div className={style.pagina} style={{ display: currentPage === 2 ? 'block' : 'none' }}>
+              <div className={style.campo}>
+
+                  <div className={style.label}><label>Rating: </label>
+                  {error.rating && <span  className={style.error}>{error.rating}</span>}
+                  <input type="number" value={input.rating} onChange={changeHandler} name="rating" required/>
+                  </div>
+
+              </div>
+
+
+            <div className={style.campo}>
+
+                  <div className={style.label}><label>Plataformas:</label>
+                  {error.platforms && <span  className={style.error}>{error.platforms}</span>}
+                      <select name="platforms" onChange={changeHandler} required  value={input.platforms}>
+                      <option value="">Elegir</option>
+                            {platforms && platforms.map((name) => (
+                              <option key={name} value={name}>
+                                  {name}
+                              </option> ))}
+                      </select>
+                  </div>
+            </div>
+
+                <div className={`${style.campo} ${style.btns}`} >
+                  <button className={style.atras} onClick={() => setCurrentPage(currentPage - 1)}>Atras</button>
+                  <button className={style.siguiente} onClick={nextFormHandler}>Siguiente</button>
+                </div>
+  </div>
+
+
+ {/* --PAGINA 3------ */}
+ <div className={style.pagina} style={{ display: currentPage === 3 ? 'block' : 'none' }}>
+
+              <div className={style.campo} >
+                      <div className={style.label}><label>Genero: </label>
+                        {error.genres && <span className={style.error}>{error.genres}</span>}
+                       <select onChange={changeHandler} required name="genres"  value={input.genres} >
+                         <option value="">Elegir</option>
+                             {genres && genres.map((genre) => (
+                               <option key={genre.id} value={genre.name}>
+                                 {genre.name}
+                               </option>
+                              ))}
+                       </select>
+                    </div>
+             </div>
+
+             <div className={style.campo}>  
+                    <div className={style.label}><label>Imagen: </label>
+                    {/* {error.image && <span  className={style.error}>{error.image}</span>} */}
+                    <input type="file" value={input.image.event} onChange={evento => setFile(evento.target.files[0])} name="image" required />
+                    {file && <span className={style.fileName}>{file.name}</span>}
+                    </div>
+             </div> 
+
+
+             <div className={`${style.campo} ${style.btns}`}>
+                <button className={style.atras} onClick={() => setCurrentPage(currentPage - 1)}>Atras</button>
+                <button className={style.siguiente} onClick={nextFormHandler}>Siguiente</button>
+             </div>
+  </div>         
+
+   {/* --PAGINA 4------ */} 
+   <div className={`${style.pagina} ` } style={{ display: currentPage === 4 ? 'block' : 'none' }} >       
+
+            <div className={style.campo}>
+                  <div className={style.label}><label>Descripción: </label>  
+
+                  {error.description && <span  className={style.error}>{error.description}</span>}
+                  <textarea type="text" value={input.description} onChange={changeHandler} name="description" required/>
+                  </div>
+           </div>
+                      
+            <div className={`${style.campo} ${style.btns} `}>
+
+                      <button className={`${style.atras}`} onClick={() => setCurrentPage(currentPage - 1)}>Atras</button>
+                      <button type="submit" onClick={submitHandler} >CREAR</button>
+                     
+
+            </div>
+                
+                  
+            
+    </div>      
+
+  
+      
+      </form>
+ 
+           
+    </div>
+
+</div>
+    )
+  } 
+  
+  export default Form;
+
+
+
+
+
+
+  
+       /* <Link to="/home">
           <div >
             <button id="work" type="button" name="Hover" className={style.ButtonForm}>
               Volver
             </button>
           </div>
-        </Link>
+        </Link> */
 
-     <form onSubmit={submitHandler} className={style.formulario}>
-        <div className={style.formColumns}>    
 
-            <div className={style.formColumn}>
-              <label>Name</label>
-              <input type="text" value={input.name} onChange={changeHandler} name="name" required/>
-              <span className={style.error}>{error.name && error.name}</span>
-            </div>
-
-              <div className={style.formColumn}>
-              <label>Fecha de lanzamiento</label>
-              <input type="date" value={input.released} onChange={changeHandler} name="released" required/>
-              {error.released && <span  className={style.error}>{error.released}</span>}
-              </div>
-
-              <div className={style.formColumn}>
-              <label>Rating</label>
-              <input type="number" value={input.rating} onChange={changeHandler} name="rating" required/>
-              {error.rating && <span  className={style.error}>{error.rating}</span>}
-              </div>
-
-              <div className={style.formColumn}>
-              <label>Platforms</label>
-              <select name="platforms" onChange={changeHandler} required  value={input.platforms}>
-              <option value="">Elegir</option>
-                    {platforms && platforms.map((name) => (
-                       <option key={name} value={name}>
-                          {name}
-                       </option> ))}
-              </select>
-              {/* {error.platforms && <span>{error.platforms}</span>} */}
-              </div>
-
-              <div className={style.formColumn} >
-              <label>Genero</label>
-              <select onChange={changeHandler} required name="genres"  value={input.genres} >
-              <option value="">Elegir</option>
-                 {genres && genres.map((genre) => (
-                    <option key={genre.id} value={genre.name}>
-                      {genre.name}
-                    </option>
-                  ))}
-              </select>
-              {error.genres && <span>{error.genres}</span>}
-             </div>
-
-             <div className={style.formColumn}>  
-              <label>Imagen</label>
-              <input type="file" value={input.image.event} onChange={evento => setFile(evento.target.files[0])} name="image" required />
-              {file && <span className={style.fileName}>{file.name}</span>}
-              {error.image && <span  className={style.error}>{error.image}</span>}
-            </div> 
-            
-            <div className={style.formColumn}>
-              <label>Description</label>
-              <textarea type="text" value={input.description} onChange={changeHandler} name="description" required rows="5" cols="39"/>
-              {error.description && <span  className={style.error}>{error.description}</span>}
-              </div>
-
-              <button type="submit"   className={style.submitButton}>CREAR</button>
-            </div>
-          </form>
-      </div>
-    )
-  } 
-  
-  export default Form;
+        //  

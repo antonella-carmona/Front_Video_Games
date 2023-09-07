@@ -1,5 +1,5 @@
-.formulario {
-    display: flex; /*  El elemento padre se convierte en un contenedor flexible, lo que significa que sus elementos hijos se comportarán como flex items, Flex Direction --> row, column, row-reverse, column-reverse,  */
+/* .formulario {
+    display: flex; 
     flex-direction: column;
 
     align-items: center;
@@ -12,7 +12,7 @@
     border: 1px solid #ccc; 
     border-radius: 5px; 
 
-    max-width: 800px; /* Ajusta el ancho del formulario */
+    max-width: 800px; 
     padding: 40px;
 
     padding-left: -9px;
@@ -42,10 +42,9 @@
   }
   .containerFormulario label {
    color: aliceblue;
-  /* margin-bottom: 5px;
-  right: 5px; */
+ 
   }
-  /* volver! */
+
   .containerFormulario button {
     margin-bottom: 10px;
     padding: 10px;
@@ -56,10 +55,6 @@
     border-radius: 5px;
   }
 
-
-
-
-/* volver! */
   .ButtonForm {
 
 
@@ -70,7 +65,6 @@
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-  /* ----- */
   position: absolute;
   top: 105px;
   
@@ -79,11 +73,10 @@
   text-decoration: none;
   border-radius: 5px;
   }
-/* ................................ */
   .formColumns {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Espaciado entre las columnas */
+    gap: 20px; 
     padding-left: 35px;
   }
 
@@ -97,4 +90,244 @@
     margin-top: 14px;
     align-self: flex-end;
    
+  } */
+
+
+  /* --------------------------------------------------------- */
+
+  *{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    /* font-family: serif; */
+
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
   }
+
+  .contenedor_General{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: none;
+  }
+
+  .Contenedor_Formulario{
+    width: 350px;
+    background: rgba(60,52,132,0.8);
+    border-radius: 7px;
+    text-align: center;
+    padding: 30px 35px 0px 35px;
+    color: white;
+    
+  }
+
+  .Contenedor_Formulario h3{
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0 0 30 0 ;
+  }
+
+  .contenedor_General .Contenedor_Formulario{
+   /* overflow: hidden; */
+   
+  }
+
+
+  .Contenedor_Formulario form{
+    display: flex;
+    width: 400%;
+  }
+
+  .Contenedor_Formulario form .pagina{
+    width: 25%;
+    margin-right: 5%;
+    transition:margin-left 0.6s ease-in-out;
+  }
+.Contenedor_Formulario form .pagina .campo{
+      height: 35px;
+      width: 350px;
+      margin: 40px 0;
+      display: flex;
+      position: relative;
+
+  }
+
+.Contenedor_Formulario form .pagina .campo .label{
+      position: absolute;
+      top: -30px;
+      font-weight: 500;
+      font-size: 14px;
+      /* font-style: italic; */
+      float: left;
+      text-align: left;
+      width: 100%;
+} 
+
+.Contenedor_Formulario form .pagina .campo input{
+      width: 100%;
+      height: 100%;
+      border: 1px solid lightgrey;
+      border-radius: 5px;
+      font-size: 17px;
+      padding-left: 15px;
+}
+
+.Contenedor_Formulario form .pagina .campo select{
+      width: 100%;
+      border: 1px solid lightgrey;
+      border-radius: 5px;
+      font-size: 16px;
+      padding-left: 10px;
+      font-weight: 500;
+      height: 100%;
+}
+/* ---------------------------- */
+.Contenedor_Formulario form .pagina .campo textarea{
+
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  font-size: 16px;
+  padding-left: 10px;
+  font-weight: 500;
+  height: 200%;
+  
+}
+/* -------------------------------- */
+.Contenedor_Formulario form .pagina .campo button{
+      width: 100%;
+      height: calc(100% + 5px);
+      margin-top: 20px;
+      border: none;
+      background: rgb(222, 36, 104); 
+      border-radius: 7px;
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.3s ease;
+}
+
+.Contenedor_Formulario form.pagina.campo button::hover{
+    background: white;
+}
+
+
+.Contenedor_Formulario form .pagina.btns button{
+    margin-top:-20px!important;
+
+  }
+
+form .pagina .btns button.atras{
+    margin-right: 3px;
+    font-size: 17px;
+
+}  
+
+form .pagina .btns button.siguiente{
+    margin-left: 3px;
+}  
+
+
+.Contenedor_Formulario .progress {
+  display: flex;
+  margin: 40px 0;
+
+}
+.Contenedor_Formulario .progress .paso{
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.progress .paso p{
+    font-size: 17px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 8px;
+ }
+
+ .progress .paso .num{
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border: 2px solid rgb(222, 36, 104);
+    border-radius: 50%;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25px;
+   }
+
+   
+ 
+   .progress .paso .num span{
+        position: absolute;
+        left: 50%;
+        font-weight: 500; 
+        font-size: 17px; 
+        line-height: 25px; 
+        transform: translateX(-50%);
+      }
+
+      /* .progress .paso .num.active span{
+        display: none;
+      } */
+      .progress .paso .check.active{
+        display: block;
+        color: black;
+      }
+
+
+      .progress .paso .check{
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 70%;
+      font-size: 15px;
+      transform: translate(-50%, -50%);
+          }
+
+          .progress .paso .num::before,
+          .progress .paso .num::after{
+            position: absolute;
+            content: "";
+            width: 44px;
+            height: 3px;
+            bottom: 11px;
+            right: -53px;
+            background: rgb(222, 36, 104);
+                }  
+                
+                .progress .paso:last-child .num::before,
+                .progress .paso:last-child .num::after{
+                  display: none;
+                }
+
+                .progress .paso .num.active:after{
+                  background: rgb(2, 27, 249);
+                  animation: mov_Linea 0.3s linear forwards;
+                  transform: scaleX(0);
+                  transform-origin: left;
+                }
+
+                .progress .paso .num.active{
+                  border-color: rgb(2, 27, 249);
+                  background: rgb(2,27,249);
+                
+                }
+                @keyframes mov_Linea {
+                  100%{
+                    transform: scaleX(1);
+                  }
+                }
+
+.error{
+  color: #DB2A31;
+  float: right;
+  text-align: right;
+}                

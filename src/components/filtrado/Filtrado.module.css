@@ -1,14 +1,15 @@
 .barra{
     position: absolute;
     display: flex;
-    font-size: 250px;
+    font-size: 0px;
     text-decoration: none;
     height: 35px;
     flex-direction: row-reverse;
     left: 19vw;
     margin-bottom: 5px;
     
-    
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
   }
 
   .buttonSelect{
@@ -18,11 +19,14 @@
     font-weight: bold;
     color: rgb(33, 30, 64);
 /* ---------------------------- */
-    font-size: 17px;
+    font-size: 15px;
     height: 100%;
     border: 0ex;
     border-radius: 10px 10px 10px 10px;
     cursor: pointer;
     margin-left: 10px;
     text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.472);
+
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
   }

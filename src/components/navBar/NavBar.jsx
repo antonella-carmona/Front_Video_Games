@@ -9,7 +9,6 @@ const NavBar = () =>{
     return(
         <div  className={style.back}>
           <div className={style.container}>
-          {/* <Link to="/home">HOME</Link> */}
          
               <Filtrado />
           
