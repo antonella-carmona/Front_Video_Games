@@ -251,7 +251,8 @@ import {getAllGenres, getAllPlatforms, postGames, getAllGames} from "../../redux
 import {useDispatch, useSelector} from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import {uploadFile} from "../../firebase/config"
+import {uploadFile} from "../../firebase/config";
+import Modal from "react-modal";
 
 
 const Form = () =>{
@@ -287,6 +288,7 @@ const [error, setError] = useState({
 
 const [file, setFile] = useState(null)
 const [currentPage, setCurrentPage] = useState(1);
+const [modalIsOpen, setModalIsOpen] = useState(false);
 //_________________________________________________________________________ 
 
   // esta fn maneja el state local-> controladorCambios de los input_____________
@@ -353,38 +355,67 @@ const [currentPage, setCurrentPage] = useState(1);
 
 
  //_________________________FN BOTON CREAR__________________________________________________________
- const submitHandler = async (event)=>{
-    event.preventDefault();
+//  const submitHandler = async (event)=>{
+//     event.preventDefault();
       
-    if(input && file){
+//     if(input && file){
       
-        try {
-          const imageUrl = await uploadFile(file); // Subir la imagen a Firebase Storage
-          setInput({ ...input, image: imageUrl }); // Actualizar la URL de la imagen en el estado
-          dispatch(postGames({ ...input, image: imageUrl }))
-        } catch (error) {
-          console.error("Error al subir la imagen:", error);
-          return
-        }
+//         try {
+//           const imageUrl = await uploadFile(file); // Subir la imagen a Firebase Storage
+//           setInput({ ...input, image: imageUrl }); // Actualizar la URL de la imagen en el estado
+//           dispatch(postGames({ ...input, image: imageUrl }))
+//         } catch (error) {
+//           console.error("Error al subir la imagen:", error);
+//           return
+//         }
     
      
-    alert(`Has creado el juego ${input.name} exitosamente`)
-    setInput({
-      name: "",
-      description: "",
-      released: "",
-      image: "",
-      platforms: [],
-      genres: [],
-      rating: ""
-     });
-    history.push("/home")
+//     alert(`Has creado el juego ${input.name} exitosamente`)
+//     setInput({
+//       name: "",
+//       description: "",
+//       released: "",
+//       image: "",
+//       platforms: [],
+//       genres: [],
+//       rating: ""
+//      });
+//     history.push("/home")
 
-  }else{
-    alert("falta algunos campos")
-  }
+//   }else{
+//     alert("falta algunos campos")
+//   }
  
- }
+//  }
+
+
+
+
+const submitHandler = async (event) => {
+  event.preventDefault();
+
+  if (input && file) {
+    try {
+      const imageUrl = await uploadFile(file);
+      setInput({ ...input, image: imageUrl });
+      dispatch(postGames({ ...input, image: imageUrl }));
+      
+      // Abre el modal cuando se crea el juego
+      setModalIsOpen(true);
+    } catch (error) {
+      console.error("Error al subir la imagen:", error);
+      return;
+    }
+  } else {
+    alert("Faltan algunos campos");
+  }
+}
+
+const closeModal = () => {
+  setModalIsOpen(false);
+  history.push("/home"); // Redirige a la página de inicio después de cerrar el modal
+};
+
 
 //___________________BOTON SIGUIENTE FORMULARIO________________________________
   // const nextFormHandler= ()=>{
@@ -413,9 +444,6 @@ const [currentPage, setCurrentPage] = useState(1);
       }
     }
   };
-  console.log("caca-->", input)
-
- 
   
 //______________________________________________________________________________
 
@@ -431,6 +459,14 @@ useEffect(() => {
     return(
 
      <div className={style.contenedor_General}>
+
+       <Link to="/home">
+          <div >
+            <button id="work" type="button" name="Hover" className={style.ButtonForm}>
+            🡨 Volver
+            </button>
+          </div>
+        </Link> 
 
 
   <div className={style.Contenedor_Formulario}>
@@ -586,6 +622,45 @@ useEffect(() => {
   
       
       </form>
+
+
+       {/* Modal para mostrar el mensaje */}
+       <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Mensaje Modal"
+
+        style={{
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo oscuro tras el modal
+          },
+          content: {
+            width: '40%',  // Ancho del modal
+            maxWidth: '300px', // Ancho máximo del modal
+            maxHeight: "300",
+            height:"38%",
+            margin: 'auto', // Centrar el modal horizontalmente
+            padding: '20px', // Espaciado interno del contenido del modal
+            borderRadius: '8px', // Bordes redondeados
+            display: 'flex', // Utiliza display flex
+            alignItems: 'center', // Centra verticalmente el contenido
+            flexDirection: 'column', // Alinea el contenido verticalmente
+          },
+        }}
+      > <h1> ★ ★ ★ ★ ★ ★</h1>
+        <h2>Juego creado exitosamente</h2>
+        <h1> ★ ★ ★ ★ ★ ★</h1>
+        <button onClick={closeModal}
+        style={{
+          marginTop: '30px', // Agregar margen superior para mover el botón hacia abajo
+          padding: '10px 20px', // Ajustar el espaciado interno del botón
+          backgroundColor: 'black', // Cambiar el color de fondo
+          color: 'white', // Cambiar el color del texto
+          border: 'none', // Eliminar el borde
+          borderRadius: '4px', // Agregar bordes redondeados
+          cursor: 'pointer', // Cambiar el cursor al pasar por encima
+        }}>Aceptar</button>
+      </Modal>
  
            
     </div>

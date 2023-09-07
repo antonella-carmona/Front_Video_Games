@@ -99,7 +99,6 @@
     margin: 0;
     padding: 0;
     outline: none;
-    /* font-family: serif; */
 
     font-family: 'Oswald', sans-serif;
     font-family: 'Rajdhani', sans-serif;
@@ -166,12 +165,14 @@
 } 
 
 .Contenedor_Formulario form .pagina .campo input{
-      width: 100%;
-      height: 100%;
+      width: 95%;
+      height: 35px; /* Increase the height here */
       border: 1px solid lightgrey;
       border-radius: 5px;
       font-size: 17px;
       padding-left: 15px;
+
+    
 }
 
 .Contenedor_Formulario form .pagina .campo select{
@@ -181,18 +182,18 @@
       font-size: 16px;
       padding-left: 10px;
       font-weight: 500;
-      height: 100%;
+      height: 35px;
 }
 /* ---------------------------- */
 .Contenedor_Formulario form .pagina .campo textarea{
 
-  width: 100%;
+  width: 97%;
   border: 1px solid lightgrey;
   border-radius: 5px;
   font-size: 16px;
   padding-left: 10px;
   font-weight: 500;
-  height: 200%;
+  height: 95px;
   
 }
 /* -------------------------------- */
@@ -209,11 +210,15 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       cursor: pointer;
-      transition: 0.3s ease;
+      transition: 1.3s ease;
 }
 
 .Contenedor_Formulario form.pagina.campo button::hover{
-    background: white;
+    
+
+    background-color: white; /* Cambia el color de fondo al hacer clic */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Agrega una sombra al hacer clic */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Agrega una transición suave */
 }
 
 
@@ -326,8 +331,27 @@ form .pagina .btns button.siguiente{
                   }
                 }
 
-.error{
-  color: #DB2A31;
-  float: right;
-  text-align: right;
-}                
+    .error{
+      color: #DB2A31;
+      float: right;
+      text-align: right;
+    }    
+    
+    .ButtonForm {
+
+
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgba(60,52,132,0.8);
+      color: #414040;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      position: absolute;
+      top: 105px;
+      
+      left: 130px;
+      background-color: #ccc;
+      text-decoration: none;
+      border-radius: 5px;
+      }
