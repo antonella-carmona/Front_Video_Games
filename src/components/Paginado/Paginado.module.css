@@ -8,7 +8,12 @@
         list-style: none;
        
 
-      
+      margin-top: 80px;
+      margin-bottom: -20px;
+
+
+      font-family: 'Arial', sans-serif;
+      gap: 10px;
     }
 
 
@@ -17,28 +22,84 @@
         margin: 13px 1px 12px 10px;    
         padding: 0px;
         font-size: 19px;
-        border-radius: 10px;
+        border-radius: 8px;
         background: #7da6d941;
         display: flex;
        /* margin-right: 40px; */
        font-weight: bold;
         border-style: solid;
-        width: 35px;
+        width: 80px;
         right: 5px; 
 
 
         justify-content: center; /* Centra horizontalmente */
         align-items: center; /* Centra verticalmente */
+        border: none;
+
+        padding: 8px 10px;
+        cursor: pointer;
+        box-shadow: inset 0px -0px 15px 3px rgb(41, 41, 41);
+        background-color: rgba(60,52,132,0.8);
+    }
+    .numeritosDos{
+        color: #e9e9e9;
+        margin: 13px 1px 12px 10px;    
+        padding: 0px;
+        font-size: 19px;
+        border-radius: 8px;
+        background: #7da6d941;
+        background-color: rgba(60,52,132,0.8);
+        display: flex;
+       /* margin-right: 40px; */
+       font-weight: bold;
+        border-style: solid;
+        width: 110%;
+        right: 5px; 
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        border: none;
+        padding: 8px 10px;
+        cursor: pointer;
+
+        box-shadow: inset 0px -0px 15px 3px rgb(41, 41, 41);
+    }
+    .numeritosTres{
+        color: #e9e9e9;
+        margin: 13px 1px 12px 10px;    
+        padding: 0px;
+        font-size: 19px;
+        border-radius: 8px;
+        /* background: #7da6d941; */
+        background-color: rgba(60,52,132,0.8);
+        display: flex;
+       /* margin-right: 40px; */
+       font-weight: bold;
+        border-style: solid;
+        width: 30px;
+        right: 5px;
+        border: none; 
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        padding: 8px 10px;
+        cursor: pointer;
+        box-shadow: inset 0px -0px 15px 3px rgb(41, 41, 41);
     }
     .numeritos:hover{
         cursor: pointer;
         box-shadow: 0px 0px 10px #000;
-        color: rgb(0, 0, 0);
+        color: rgb(164, 159, 159);
         transition: 150ms;
         font-weight: bold;
-        border-style: solid;
+        /* border-style: solid; */
         border-color: #000;
-    
+    }
+    .numeritosDos:hover{
+        cursor: pointer;
+        box-shadow: 0px 0px 10px #000;
+        color: rgb(164, 159, 159);
+        transition: 150ms;
+        /* border-style: solid; */
+        border-color: #000;
     }
 
 }

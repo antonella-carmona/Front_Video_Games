@@ -355,3 +355,13 @@ form .pagina .btns button.siguiente{
       text-decoration: none;
       border-radius: 5px;
       }
+
+      .modalButton{
+          margin-top: 30px;   /* Agregar margen superior para mover el botón hacia abajo */
+          padding: 10px 20px; /* Ajustar el espaciado interno del botón*/
+          background-color: black; /* Cambiar el color de fondo*/
+          color: white; /* Cambiar el color del texto*/
+          border: none; /* Eliminar el borde*/
+          border-radius: 4px; /* Agregar bordes redondeados*/
+          cursor: pointer; /* Cambiar el cursor al pasar por encima*/
+      }

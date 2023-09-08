@@ -247,7 +247,7 @@
 
 import { useState, useEffect } from "react";
 import style from "./Form.module.css";
-import {getAllGenres, getAllPlatforms, postGames, getAllGames} from "../../redux/actions/actions";
+import {getAllGenres, getAllPlatforms, postGames} from "../../redux/actions/actions";
 import {useDispatch, useSelector} from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
@@ -651,15 +651,7 @@ useEffect(() => {
         <h2>Juego creado exitosamente</h2>
         <h1> ★ ★ ★ ★ ★ ★</h1>
         <button onClick={closeModal}
-        style={{
-          marginTop: '30px', // Agregar margen superior para mover el botón hacia abajo
-          padding: '10px 20px', // Ajustar el espaciado interno del botón
-          backgroundColor: 'black', // Cambiar el color de fondo
-          color: 'white', // Cambiar el color del texto
-          border: 'none', // Eliminar el borde
-          borderRadius: '4px', // Agregar bordes redondeados
-          cursor: 'pointer', // Cambiar el cursor al pasar por encima
-        }}>Aceptar</button>
+         className={style.modalButton}>Aceptar</button>
       </Modal>
  
            
