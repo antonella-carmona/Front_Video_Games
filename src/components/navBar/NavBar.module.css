@@ -66,34 +66,28 @@
 
 
 .buttonFav{
-  top: 9px;
-  position: absolute;
-
-  /* color: rgb(0, 0, 0); */
-  /* background: #fbff1aa9; */
-  background-color: rgba(215, 214, 224, 0.8);
-  color: rgb(33, 30, 64);
-  /* color: white; */
+  top: 13px;
+  position: absolute;  
   font-weight: bold;
  /* ------------------------- */
   font-size: 15px;  /* tamaño letra */
-  height: 36px;  /* altura */
+  height: 35px;  /* altura */
   border: 0ex;
   border-radius: 10px 10px 10px 10px;
   cursor: pointer;
   margin-left: 10px;
-  text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.477);
+  
+  color: white;
+  text-shadow: 0.0em 0.0em 0.1em rgba(255, 253, 253, 0.477);
+  background-color: rgba(31,27,54);
 
-
-
-  /* right:34%;   */
-  right: 29%;  /* Derecha */
-  margin-right: -9px;
-
-
+  right: 28%;  /* Derecha */
+  margin-right: -10px;
 
   font-family: 'Oswald', sans-serif;
   font-family: 'Rajdhani', sans-serif;
+  
+  padding: 9px 13px;
  
 }
 

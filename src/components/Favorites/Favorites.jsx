@@ -13,7 +13,7 @@ const Favorites = () => {
  
   const myFavorites = useSelector((state) => state.myFavorites);
  
-  
+  console.log("volvi -->", myFavorites)
  
   useEffect(()=>{
     dispatch(allFav())
@@ -25,7 +25,7 @@ const Favorites = () => {
         <Link to="/home">
           <div >
             <button id="work" type="button" name="Hover" className={style.backButton}>
-              Volver
+            &#129144; Atras
             </button>
           </div>
         </Link>
@@ -43,7 +43,7 @@ const Favorites = () => {
               id={fav.id}
               name={fav.name}
               image={fav.image}
-              genres={fav.item}
+              genres={fav.genres}
               isFavo={true}
             />
           ) ))}

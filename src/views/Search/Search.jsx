@@ -4,9 +4,6 @@ import {getAllGames, getAllByName, clear} from "../../redux/actions/actions";
 import style from "./Search.module.css";
 
 
-// import style from "../styles/SearchBar.module.css";
-
-
 export default function SearchByName() {
     const dispatch = useDispatch();
     const [nameSearch, setNameSearch] = useState(""); 
@@ -29,6 +26,9 @@ export default function SearchByName() {
         }
     
       }
+
+
+      
     //_________FN BOTON________________
     const handlerSubmit= (event)=>{
       event.preventDefault();
@@ -41,7 +41,7 @@ export default function SearchByName() {
         <form onSubmit={handlerSubmit}>
           <input type='text' placeholder='Buscar juegos'
             value={nameSearch}   onChange={handleName}   />
-          <button type='submit'  >Buscar</button>
+          <button type='submit' ></button>
         </form>
 
 

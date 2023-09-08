@@ -1,6 +1,6 @@
 .cardContainer{
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,7 +10,7 @@
   background-image: url("../../img//bg.jpg");
   text-align: center;
 
-  
+  margin-top: 10%;
 }
 
 
@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap:3em;
+    gap:0,3em;
     align-items: center;
     place-content: center;
     margin-top: 5%;
@@ -29,8 +29,7 @@
 
   .backButton{
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #ccc;
+    padding: 7px 15px;
     color: #414040;
     text-decoration: none;
     border-radius: 5px;
@@ -38,7 +37,7 @@
     /* ----- */
     position: absolute;
     top: 80px;
-    left: 10px;
+    left: 18px;
     background-color: #ccc;
     text-decoration: none;
     border-radius: 5px;

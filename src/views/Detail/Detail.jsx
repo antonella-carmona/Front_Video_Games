@@ -57,7 +57,7 @@ const Detail = (props) => {
         <Link to="/home">
           <div >
             <button id="work" type="button" name="Hover" className={style.backButton}>
-              Volver
+            &#129144; Atras
             </button>
           </div>
         </Link>
@@ -91,33 +91,23 @@ const Detail = (props) => {
 
 {/* //__________________________________________________ */}
        <div className={style.genresContainer}>
-            <h4>Generos: </h4>
-            <div >
-
-            {/* -----------------------------------------
-            {todo.length > 0 ? (
-              todo.map((elemento, index) => (
-              <span key={index}  className="platformItem">{elemento.trim()} | </span>
-              ))
-            ) : (
-              <p>No se encontraron generos</p>
-            )}
-          --------------------------------------------- */}
-            {Array.isArray(todo) ? (
-          todo.map((item, index) => {
-            if (typeof item === "string") {
-              return  <span key={index} className="platformItem"> {item.trim()} | </span>;
-            } else if (typeof item === "object") {
-              for (let key in item) {
-                return <span key={index} className="platformItem"> {item[key]} </span> ;
-              }
-            }
-            return null;
-          })
-        ) : (
-          <p>No genres available</p>
-        )}
-            </div>
+          <h4>Generos: </h4>
+            <div>
+                  {Array.isArray(todo) ? (
+                  todo.map((item, index) => {
+                  if (typeof item === "string") {
+                    return  <span key={index} className="platformItem"> {item.trim()} | </span>;
+                  } else if (typeof item === "object") {
+                    for (let key in item) {
+                      return <span key={index} className="platformItem"> {item[key]} </span> ;
+                    }
+                  }
+                      return null;
+                    })
+                  ) : (
+                    <p>No genres available</p>
+                  )}
+          </div>
       </div> 
 
 
@@ -125,26 +115,16 @@ const Detail = (props) => {
   
       <div  className={style.rating}>
           
-           <h4>Rating:</h4> <span>{gameDetalle?.rating}</span>
+      <h4>Rating:</h4> <span>{gameDetalle?.rating}</span>
            
       </div>
 
-      <div className={style.description}>
-          
-           <h4>Description:</h4><span> {gameDetalle?.description}</span>
-          
-      </div>
-     
-     
-      
-
-
-
-
-
-
-
-
+            <div className={style.description}>
+                
+                <h4>Description:</h4>
+                <span> {gameDetalle?.description}</span>
+                
+            </div>
 
     </div>
   );

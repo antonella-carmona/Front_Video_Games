@@ -3,12 +3,14 @@
 	vertical-align: middle;
 	white-space: nowrap;
 	position: absolute;
-    right:3.0vw
+    right:4.0vw;
+	margin-top: 7px;
+	
 
 }
 
 .searchbar input {
-	font-family: 'Bebas Neue', cursive;
+	
 	font-family: 'Oswald', sans-serif;
 	font-family: 'Rajdhani', sans-serif;
 	font-size: 17px;
@@ -16,34 +18,37 @@
 	height: 27px;
 	
 	border-color: #79a9e2;
-	border-radius: 3px 0px 0px 3px;
 	box-shadow: 0 10px 50px rgba(7, 17, 19, 0.616);
+	border-radius: 5px;
 }
 
 .searchbar form button {
 	/* color: white; */
-	font-weight: bold;
+	/* font-weight: bold;
 	color: rgb(33, 30, 64);
-	font-family: 'Bebas Neue', cursive;
-	font-family: 'Oswald', sans-serif;
-	font-family: 'Rajdhani', sans-serif;
-	font-size: 17px;
+
+	font-size: 15px;
 	height: 31px;
-	border: 0px;
-	border-radius: 0px 3px 3px 0px;
+	border: none; */
+	/* border-radius: 0px 3px 3px 0px; */
 	/* background-color: #fbff1aa9; */
-	background-color: rgba(215, 214, 224, 0.8);
-	box-shadow: 0 10px 50px rgba(7, 17, 19, 0.616);
-	text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.472);
+	/* background-color: rgba(215, 214, 224, 0.8); */
+	/* box-shadow: 0 10px 50px rgba(7, 17, 19, 0.616);
+	text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.472); */
+	
+    
+
+	
 }
+
 
 .searchbar input:hover {
 	cursor: pointer;
 	border-color: #be1affa9;
 }
 
-.searchbar form button:hover {
+/* .searchbar form button:hover {
 	cursor: pointer;
 	color: #fcfcfaa9;
 	transition: 150ms;
-}
+} */
