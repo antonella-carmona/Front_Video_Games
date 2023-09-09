@@ -1,10 +1,10 @@
 // import Card from "../Card/Card";
 import {useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-// import { useState } from "react";
 import style from "./Filtrado.module.css";
 import { orderCards, filterCardGenres, getAllGenres, sortRating, filterGames } from "../../redux/actions/actions";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 const Filtrado = () =>{
@@ -51,6 +51,9 @@ function handleFilterGames(event) {
 //______________________________________________________________________________________
   return(
     <div className={style.barra}>
+
+      <Link to="/favoritos"> <button className={style.buttonSelect}>Favoritos</button> </Link>
+
           <select  onChange={handlerOrder} className={style.buttonSelect}> 
                 <option >Orden alfabetico</option>   
                 <option value={"A"} >A-Z</option>
@@ -84,6 +87,8 @@ function handleFilterGames(event) {
                 <option  value={"Menor Rating"}>Menor Rating</option>
                 <option value={"Mayor Rating"}>Mayor Rating</option>
             </select>
+
+           
           
 
 

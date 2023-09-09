@@ -3,7 +3,7 @@
 	vertical-align: middle;
 	white-space: nowrap;
 	position: absolute;
-    right:4.0vw;
+    right:1.0vw;
 	margin-top: 7px;
 	
 
@@ -13,13 +13,14 @@
 	
 	font-family: 'Oswald', sans-serif;
 	font-family: 'Rajdhani', sans-serif;
-	font-size: 17px;
+	font-size: 15px;
 	color: rgb(0, 0, 0);
 	height: 27px;
+	width: 80%;
 	
 	border-color: #79a9e2;
 	box-shadow: 0 10px 50px rgba(7, 17, 19, 0.616);
-	border-radius: 5px;
+	border-radius: 15px;
 }
 
 .searchbar form button {

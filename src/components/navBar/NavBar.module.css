@@ -55,7 +55,8 @@
   text-decoration: none;
   color: white;
   height:50px;  /* altura */
-  right: 0px;   /* Derecha */
+  right: 0%;   /* Derecha */
+ 
  
   font-family: 'Oswald', sans-serif;
   font-family: 'Rajdhani', sans-serif;
@@ -64,14 +65,14 @@
 
 
 
-
+/* 
 .buttonFav{
   top: 13px;
   position: absolute;  
   font-weight: bold;
- /* ------------------------- */
-  font-size: 15px;  /* tamaño letra */
-  height: 35px;  /* altura */
+
+  font-size: 15px;  
+  height: 35px; 
   border: 0ex;
   border-radius: 10px 10px 10px 10px;
   cursor: pointer;
@@ -81,7 +82,7 @@
   text-shadow: 0.0em 0.0em 0.1em rgba(255, 253, 253, 0.477);
   background-color: rgba(31,27,54);
 
-  right: 28%;  /* Derecha */
+  right: 28%; 
   margin-right: -10px;
 
   font-family: 'Oswald', sans-serif;
@@ -89,5 +90,7 @@
   
   padding: 9px 13px;
  
-}
+} */
+
+
 
