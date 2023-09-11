@@ -109,7 +109,7 @@
  
 } */
 /* ------------------------------------------------------------------------------ */
-/* Estilos para pantallas pequeñas (por ejemplo, menor a 768px) */
+/* Estilos para pantallas pequeñas (por ejemplo, menor a 1030px) */
 @media screen and (max-width: 1030px) {
   .container {
     /* Aplicar estilos específicos para pantallas pequeñas */

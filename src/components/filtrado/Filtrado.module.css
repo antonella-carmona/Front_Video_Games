@@ -38,7 +38,7 @@
     
   }
   @media screen and (max-width: 1030px) {
-    .buttonSelect {
+    .barra {
       /* Aplicar estilos específicos para pantallas pequeñas */
   
       width: auto;
@@ -48,5 +48,19 @@
       /* Aplicar estilos específicos para pantallas pequeñas */
   
       width: 100%;
+    }
+  }
+  @media screen and (max-width: 1250px) {
+    .barra {
+      /* Aplicar estilos específicos para pantallas pequeñas */
+  
+      width: auto;
+    }
+    
+    .buttonSelect {
+      /* Aplicar estilos específicos para pantallas pequeñas */
+  
+      width: 100%;
+      font-size: 8px;
     }
   }
