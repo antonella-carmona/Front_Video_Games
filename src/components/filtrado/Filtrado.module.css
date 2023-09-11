@@ -35,4 +35,18 @@
 
     padding: 0px 10px;
     
+    
+  }
+  @media screen and (max-width: 1030px) {
+    .buttonSelect {
+      /* Aplicar estilos específicos para pantallas pequeñas */
+  
+      width: auto;
+    }
+    
+    .buttonSelect {
+      /* Aplicar estilos específicos para pantallas pequeñas */
+  
+      width: 100%;
+    }
   }

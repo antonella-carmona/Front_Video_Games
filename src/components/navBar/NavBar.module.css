@@ -24,7 +24,8 @@
 
     justify-content: space-between;
     text-align: center;
-    
+
+    flex-wrap: wrap;
    
 }
 .barra{
@@ -32,7 +33,6 @@
   display: flex;
   text-decoration: none;
   height: 35px;
-  flex-direction: row-reverse;
   /* left: 19vw; */
   margin-bottom: 5px;
   
@@ -76,7 +76,7 @@
 	vertical-align: middle;
 	white-space: nowrap;
 	position: absolute;
-    right:1.0vw;
+  right:1.0vw;
 	margin-top: 10px;
 }
 
@@ -108,34 +108,41 @@
   padding: 9px 13px;
  
 } */
-
-
-/* Estilos para pantallas más pequeñas (responsive) */
-/* @media (max-width: 768px) {
+/* ------------------------------------------------------------------------------ */
+/* Estilos para pantallas pequeñas (por ejemplo, menor a 768px) */
+@media screen and (max-width: 1030px) {
   .container {
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: auto;
-    padding: 20px;
+    /* Aplicar estilos específicos para pantallas pequeñas */
+
+    width: 100%;
+  }
+
+  .barra {
+    /* Puedes modificar el diseño de .barra para pantallas pequeñas */
+    /* Por ejemplo, cambiar la dirección del flexbox a fila o reducir el tamaño de fuente */
+       /* Ejemplo: Cambiar la dirección del flexbox a fila y reducir el tamaño de fuente */
+       flex-direction: row;
+       font-size: 14px;
+       width: auto;
   }
 
   .create {
-    position: relative;
-    margin: 20px 0;
-    right: auto;
-    top: auto;
-    text-align: center;
+    /* Puedes ajustar los estilos de .create para pantallas pequeñas */
+        /* Ejemplo: Ajustar el posicionamiento y reducir el tamaño de fuente */
+        /* right: 5%; */
+        font-size: 18px;
+        width: auto;
   }
 
   .SearchBar {
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
-    order: 1; 
+    /* Puedes ajustar los estilos de .SearchBar para pantallas pequeñas */
+        /* Ejemplo: Ajustar el ancho y reducir el tamaño de fuente */
+        width: auto;
+        font-size: 15px;
+        text-align: center;
+        /* margin-top: 10px; */
   }
-} */
-
+}
 
 
 
