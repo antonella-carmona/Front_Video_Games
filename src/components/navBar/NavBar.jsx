@@ -43,16 +43,14 @@ const NavBar = () =>{
        
           <div className={style.container}>
          
-              <Filtrado />
+            <div className={style.barra}>  <Filtrado /> </div>
           
-              <Link to="/create"  className={style.create}>CREAR JUEGO</Link>
+            <div  className={style.create}>  <Link to="/create" style={{ color: 'white' }}>CREAR JUEGO</Link> </div>
           
               <div className={style.SearchBar}>
               <Search/>
               </div>
 
-             
-              {/* <Link to="/favoritos"> <button className={style.buttonFav}>Favoritos</button> </Link> */}
              
           </div>
         

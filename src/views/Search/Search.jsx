@@ -39,7 +39,7 @@ export default function SearchByName() {
     return (
       <div  className={style.searchbar} >
         <form onSubmit={handlerSubmit}>
-          <input type='text' placeholder='  B u s c a r    j u e g o s'
+          <input type='text' placeholder='B u s c a r    j u e g o s'
             value={nameSearch}   onChange={handleName}   />
           <button type='submit' ></button>
         </form>
