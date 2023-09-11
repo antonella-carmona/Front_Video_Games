@@ -5,8 +5,6 @@ import {getAllGames,clear} from "../../redux/actions/actions";
 import style from "./Home.module.css";
 import Loading from "../../components/Loader/Loader";
 
-// que haga dispatch despache la actions
-
 
 const Home = () =>{
   const dispatch = useDispatch();
@@ -29,14 +27,13 @@ const Home = () =>{
 if (allVgames.length === 0) {
   return <div >
     <Loading />
-  </div>
+        </div>
 } 
 //____________________________________________________________________________  
 
 
   return(
     <div className={style.contenedorHome}>
-        {/* <h1 className={style.titleHome}>Home</h1> */}
         <CardsContainer/>
     </div>
   )

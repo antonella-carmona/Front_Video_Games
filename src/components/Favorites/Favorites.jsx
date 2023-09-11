@@ -13,7 +13,6 @@ const Favorites = () => {
  
   const myFavorites = useSelector((state) => state.myFavorites);
  
-  console.log("volvi -->", myFavorites)
  
   useEffect(()=>{
     dispatch(allFav())

@@ -1,11 +1,10 @@
 import style from "./Card.module.css";
 import {Link} from "react-router-dom";
-import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {postFavorite, removeFav} from "../../redux/actions/actions"
 
 //este tipo de component es un down por que es un component presentacional, no tiene una carga como tal mas que solo mostrar algo, osea no maneja logica en si.
-//cada componente independientemente de su trabajo, tiene la posibilidad de manejar un estado local propio suyo, que es para trabajar su propio cuerpo digamos.
+//cada componente independientemente de su trabajo, tiene la posibilidad de manejar un estado local propio suyo, que es para trabajar su propio cuerpo.
 const Card = ({id, name, image, genres, isFavo})=>{
  
    const dispatch= useDispatch()
@@ -27,10 +26,6 @@ const Card = ({id, name, image, genres, isFavo})=>{
 //--------------------------------   
     return(
       <div className={style.oneCard}>
-
-      {/* <div className={style.favoriteButton} onClick={(event) =>handleFavorite(event)}>
-        {isFav ? "❤️" : "🤍"}
-      </div> */}
 
         <Link to={`/detail/${id}`}  style={{textDecoration: "none"}}  >
 
@@ -68,9 +63,9 @@ const Card = ({id, name, image, genres, isFavo})=>{
 
 
          
-       <div className={style.favoriteButton} onClick={(event) =>handleFavorite(event)}>
-        {isFav ? "❤️" : "🤍"}
-      </div> 
+        <div className={style.favoriteButton} onClick={(event) =>handleFavorite(event)}>
+          {isFav ? "❤️" : "🤍"}
+        </div> 
 
 
       </div>

@@ -2,8 +2,8 @@ import style from "./Detail.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getById, clear , deleteGame} from "../../redux/actions/actions";
 import { Link , useHistory} from "react-router-dom";
-import { useEffect, useState } from "react";
-// import Delete from "../../components/Delete/Delete";
+import { useEffect } from "react";
+
 
 
 const Detail = (props) => {
@@ -21,7 +21,6 @@ const Detail = (props) => {
     }
   }, [dispatch, id]);
 
-  // console.log("que id llega en el detail? ---------->",id)
 
   const handleDelete = async (event) => {
     
