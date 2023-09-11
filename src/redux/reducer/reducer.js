@@ -92,8 +92,6 @@ case ORDER_CARDS:
         return 0; // a y b son iguales en términos de orden alfabético
       });
 
-  // console.log("------>", action.payload);
-
   return {
     ...state,
     allGames: sortedCopy};
@@ -115,33 +113,15 @@ case ORDER_CARDS:
 //__________________API O BDD_________________________________________________
   case FILTER_GAMES: 
   const games = state.copyAllGames
-  console.log("que tiene la copy de allGames? -->", games)
+ 
   const originfilter = action.payload === "BDD"
   ? games.filter(p => p.created === true )  //BD
   : games.filter(p => p.created === false)   //API
   
-   console.log("que me llego en mi reducer------>", action.payload);
 return { ...state, allGames: action.payload === "ALL" ? state.copyAllGames : originfilter }
 //___________________________________________________________________
  case DELETEGAME:
   console.log("es hoy, es hoy ", action.payload.deleteId)
-      // const eliminar= state.copyAllGames
-      //  // Filtra la lista de juegos y excluye el juego con el ID proporcionado
-      //   const updatedGames = eliminar.filter(game => game.id !== action.payload.deleteId);
-      //   console.log("......  ", updatedGames)
-      //  // Muestra una alerta con el ID y el nombre del juego eliminado
-      //   const gameToDelete = eliminar.find(game => game.id === action.payload.deleteId);
-      //   alert(`Se eliminó exitosamente el juego con ID: ${gameToDelete.id} y nombre: ${gameToDelete.name}`);
-      
-      //  //Retorna un nuevo estado con la lista de juegos actualizada
-       
-       
-      //    return {
-      //    ...state,
-      //    copyAllGames: updatedGames
-      //  };
-
-
       // Encuentra el índice del favorito en myFavorites que tiene el PublicationId igual al payload
       const favIndex = state.copyAllGames.findIndex((game) => game.id === action.payload.deleteId)
       if (favIndex !== -1) {

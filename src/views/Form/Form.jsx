@@ -10,7 +10,7 @@ import Modal from "react-modal";
 
 const Form = () =>{
   const dispatch = useDispatch();
-  // const navigate= useNavigate()
+ 
   const genres = useSelector((state) => state.genres);
   const platforms = useSelector((state)=> state.platforms);
   const history = useHistory();
